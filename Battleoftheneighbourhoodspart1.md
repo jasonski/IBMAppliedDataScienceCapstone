@@ -40,30 +40,30 @@ The csv file directly provides the number of citizens for each zip area code.
 
 ### 2.2. Location data Berlin, Germany
 
-Next, we need the location and shape of each zip code. This is also provided as a shape or kml file here: https://www.suche-postleitzahl.org/berlin.13f
+Next, we need the location and shape of each zip code. The is also provided by the smae page as a shape or kml file. https://www.suche-postleitzahl.org/berlin.13f
 
 *data example:*
 ```kml
 <kml xmlns="http://www.opengis.net/kml/2.2"><Document><Folder><name>PLZ 5-stellig Stadt Berlin</name><Placemark><name>10115</name><description>10115 Berlin Mitte</description><Polygon><outerBoundaryIs><LinearRing><coordinates>13.3658603,52.535660399999998 13.366558899999999,52.5359129 13.3667012,52.5360631 13.3678819,52.5366213 13.368609299999999, ... ,52.535660399999998</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark><Placemark> ...
 ```
-These are GPS coordinates which serve as the corner points of the polygone of the zip code area 10115 Berlin.
+These are **GPS coordinates** which serve as the corner points of the polygone of the **zip code area** 10115 Berlin. We downloaded the list of coordinates for all Berlin zip codes.
 
 ### 2.3. Categorical Data provided by Foursquare
 
-In order to obtain information on tourist numbers we use the proxy hotels in Berlin. Also we seek office location and burger joint locations. To gather these information we use the location platform of **Foursquare Labs Inc.**. We will use the venue search query to access the foursquare database using their API.
+In order to obtain information on tourist numbers we will use the proxy hotel locaions. Also we seek office locations and burger joint locations. To gather these information we utillize the location platform of **Foursquare Labs Inc.** using a free developer account. We will use the *venue search query* to access the foursquare database using their API. This returns a list of venues near a given location, optionally matching a search term. We can specify our three categories hotels, offices and burger joint.
 
 Documentation on how to use this query is found here:
 https://developer.foursquare.com/docs/api/venues/search
 
 The FoursquareAPI response provides much more data than needed here. We will only make use of the following parameters:
-name, latitude, longitude, zip code, and id.
+name, latitude, longitude, zip code, and id as we are mainly intereested in location and number of these places.
 
-An exemplary burger joint location, as provided by foursquare and reshaped into a python pandas dataframe would be:
+An exemplary response for a joint location, as provided by foursquare,  limited to only one answer, and reshaped into a python pandas dataframe would look linke this:
 
 |name |	lat |	lon |	zip 	|id|
 |----|----|----|----|----|
 |Kladow Grill Burger Pizza |	52.453026 |	13.141852 |	14089 |	4f92ddb6e4b008256552e140|
 
-A request will give a list of results and we will pose multiple request to cover all Berlin zip codes as well as all above named categories.
+A normal request will give a list of up to 50 results (for a free developer account) and we will have to pose multiple request to cover all Berlin zip codes as well as all above named categories.
 
 
