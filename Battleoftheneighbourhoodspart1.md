@@ -54,7 +54,7 @@ We download the list of coordinates for all Berlin zip codes.
 
 ### 2.3. Categorical Data provided by Foursquare
 
-In order to obtain information on tourist numbers we will use the proxy hotel locaions. Also we seek office locations and burger joint locations. To gather these information we utillize the location platform of **Foursquare Labs Inc.** using a free developer account. We will use the *venue search query* to access the foursquare database using their API. This returns a list of venues near a given location, optionally matching a search term. We can specify our three categories hotels, offices and burger joint.
+In order to obtain information on tourist numbers we will use the proxy hotel locaions. Also we seek office locations and burger joint locations. To gather these information we utillize the location platform of **Foursquare Labs Inc.** using a free developer account. We will use the *venue search query* to access the foursquare data base using their API. This returns a list of venues near a given location, optionally matching a search term. We can specify our three categories hotels, offices and burger joints.
 
 Documentation on how to use this query is found here:
 https://developer.foursquare.com/docs/api/venues/search
