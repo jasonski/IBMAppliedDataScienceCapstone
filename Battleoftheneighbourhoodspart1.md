@@ -48,7 +48,7 @@ Next, we need the location and shape of each zip code. The is also provided by t
 ```
 These are **GPS coordinates** which serve as the corner points of the polygone of the **zip code area** 10115 Berlin. Here an exemplary image of that zip code:
 
-![Zip 10115](IBMAppliedDataScienceCapstone/images/10115.png?)
+![Zip 10115](/images/10115.png?)
 
 We download the list of coordinates for all Berlin zip codes.
 
