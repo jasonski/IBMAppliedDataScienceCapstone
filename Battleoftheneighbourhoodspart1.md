@@ -46,7 +46,11 @@ Next, we need the location and shape of each zip code. The is also provided by t
 ```kml
 <kml xmlns="http://www.opengis.net/kml/2.2"><Document><Folder><name>PLZ 5-stellig Stadt Berlin</name><Placemark><name>10115</name><description>10115 Berlin Mitte</description><Polygon><outerBoundaryIs><LinearRing><coordinates>13.3658603,52.535660399999998 13.366558899999999,52.5359129 13.3667012,52.5360631 13.3678819,52.5366213 13.368609299999999, ... ,52.535660399999998</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark><Placemark> ...
 ```
-These are **GPS coordinates** which serve as the corner points of the polygone of the **zip code area** 10115 Berlin. We downloaded the list of coordinates for all Berlin zip codes.
+These are **GPS coordinates** which serve as the corner points of the polygone of the **zip code area** 10115 Berlin. Here an exemplary image of that zip code:
+
+![Zip 10115](images/10115.PNG?raw=true)
+
+We download the list of coordinates for all Berlin zip codes.
 
 ### 2.3. Categorical Data provided by Foursquare
 
