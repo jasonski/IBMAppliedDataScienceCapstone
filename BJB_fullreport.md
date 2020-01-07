@@ -240,7 +240,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
   </tbody>
 </table>
 
-There are some missing zip code values in the data frames. We have to replace them. Simultaneously all places need to be dropped that are not in Berlin. To achieve this the latitude and longitude of each location is compared with the zip code polygones provided in the geojson file. To check if a given point is wihtin a given polygone the python package [shapely](https://pypi.org/project/Shapely/) provides the methods Point and Polygon .
+Some rows miss zip code values in all data frames. We have to replace them. Simultaneously the data frames need to be cleaned  from places that are not in Berlin and wich were accidentally added due to the implementation of the data acquisition (see jupyter notebook). To achieve this the latitude and longitude of each location is compared with the zip code polygones provided in the geojson file. To check if a given point is wihtin a given polygone the python package [shapely](https://pypi.org/project/Shapely/) with its methods Point and Polygon is utillized.
 
 
 
