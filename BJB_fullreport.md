@@ -330,12 +330,12 @@ The above examples demonstrate that there is no easy visual relation between the
 ## 4. Results
 The kmeans++ clusterization works fine and we find four clusters that appear to represent and separate our data set well. We check this again by plotting different categories against one another with a color overlay corresponding to the clusters obtained by the kmeans++ approach.
 
-![data_clustr1](/images/data_clustr1.png?)<br>
+![data_cluster1](/images/data_cluster1.png?)<br>
 *Figure 6:  Office count against number of burger places for each zip code color coded by cluster number 0-3.*
 
 When the result is plotted onto the Berlin map we can identify the different clusters by color. 
 
-![map_clustr1](/images/map_clustr1.png?)<br>
+![map_cluster1](/images/map_cluster1.png?)<br>
 *Figure 7:  Map of Berlin zip code areas color coded by cluster affiliation.*
 
 Now the affiliation of the zip codes with the four clusters is made clear. To make use of the performed cluterization we still have to understand if there is an interpretable scheme behind the clusterization. In order to do so, we average each category clusterwise and then normalize each category by deviding by the maximum value between cluster. We obtain a new data frame displayed in the following table. 
@@ -385,7 +385,7 @@ Now the affiliation of the zip codes with the four clusters is made clear. To ma
 
 We see that the clusterwise average citizen count is very similar between clusters, while the other categories vary significantly stronger. The largest deviation is found for burger joints. To better visulize this the following figure is very useful.
 
-![rose_clustr1](/images/rose_clustr1.png?)<br>
+![rose_cluster1](/images/rose_cluster1.png?)<br>
 *Figure 8:  Clusterwise averaged categories burger joints, office count, hotel count and office count. The numbers are normalized by the maximum of each category. Cluster coloring is consistent with Figures 6+7.*
 
 With the help of Figure 8 it is now possible to rank the cluster by their lables and thus answer our initial research question.
