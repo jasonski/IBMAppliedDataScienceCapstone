@@ -244,7 +244,7 @@ Some rows miss zip code values in all data frames. We have to replace them. Simu
 
 ### 3.2 Data Analysis
 In the cleaned data frames it is now possible to count facilities of each type for each zip code. The result is joined with the demographic data on the basis of theri zip codes and the resulting data frame constitutes the data base for the following statistical anylsis. The first rows can be seen in the following table.
-<table class="dataframe" border="1">
+<table class="dataframe">
   <thead>
     <tr style="text-align:right">
       <th></th>
