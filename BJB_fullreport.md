@@ -34,7 +34,8 @@ https://www.suche-postleitzahl.org/download_files/public/plz_einwohner.csv
 | 10119| 16363 |
 | 10178| 12167 |
 | 10179| 18664 |
-| 10243| ... |<\br>
+| 10243| ... |
+<\br>
 *Table 1: Data example of citizen count for some zip codes in Berlin.*
 
 The csv file directly provides the number of citizens for each zip area code.
