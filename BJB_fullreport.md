@@ -132,6 +132,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
     </tr>
   </tbody>
 </table>
+
 *Table 2: Burger Joint Data frame*
 
 <table class="dataframe" >
