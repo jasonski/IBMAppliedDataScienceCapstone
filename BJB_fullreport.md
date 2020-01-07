@@ -189,6 +189,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
     </tr>
   </tbody>
 </table>
+
 *Table 3: Hotel Data frame*
 
 <table class="dataframe" >
@@ -245,6 +246,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
     </tr>
   </tbody>
 </table>
+
 *Table 4: Office Data frame*
 
 Some rows miss zip code values in all data frames. We have to replace them. Simultaneously the data frames need to be cleaned  from places that are not in Berlin and wich were accidentally added due to the implementation of the data acquisition (see jupyter notebook). To achieve this the latitude and longitude of each location is compared with the zip code polygones provided in the geojson file. To check if a given point is wihtin a given polygone the python package [shapely](https://pypi.org/project/Shapely/) with its methods Point and Polygon is utillized. With the help with the python package [folium](https://pypi.org/project/folium/) the data set can be visualized in map form.
@@ -308,7 +310,8 @@ In the cleaned data frames it is now possible to count facilities of each type f
     </tr>
   </tbody>
 </table>
-*Table 5: Complete data frame comprising the four categories used in this study: citizens, burger places, hotels, and offices. *
+
+*Table 5: Complete data frame comprising the four categories used in this study: citizens, burger places, hotels, and offices.*
 
 For completeness the demographic data is visulized in the following figure. This is achieved by combining the geojason file and the dataframe colum citizen count using the python folium package.
 
@@ -385,6 +388,7 @@ In order to get a better grasp on the meaning of the clusterization, we average 
     </tr>
   </tbody>
 </table>
+
 *Table 6: Data categories counted and normalized for each column.*
 
 We see that the clusterwise average citizen count is very similar between clusters, while the other categories vary significantly stronger. The largest deviation is found for burger joints. To better visulize this the following figure is very useful.
@@ -401,7 +405,7 @@ A second option are the **areas of cluster (0)** where we find even less burger 
 The other two **categories (1) and (2)** show signifficantly more competition and less favourable conditions for opening the new burger place. However, if the competition can be overcome by an superior burger offering of any kind the areas in cluster (2) might be interessting as well.
 
 ## 6. Conclusion
-We found a clear answer to the initial raised question where to open a new burger place in Berlin, Germany. We performed data acquisiton and reshaping and then analysed the data using the kmeans++ algorithm. In this way we obtained four clusters which we interpretet to be of very different quality for opening the new burger place. The zip code areas from cluster (0) show the best factors and should be considered first.
+We found a clear answer to the initial raised question where to open a new burger place in Berlin, Germany. We performed data acquisiton and reshaping and then analysed the data using the kmeans++ algorithm. In this way we obtained four clusters which we interpretet to be of very different quality for opening the new burger place. **The zip code areas from cluster (0) show the best factors and should be considered first.**
 
 Note, that we have to make clear that the analysis presented here is based only on a very limited amount of data categories. It is obvious that many other factors will influence the success of a new restaurant. This analysis should therefore be considered as a exemplary work that could be extended easily by including more data such as e.g. the amout of rent to be paid, availlable places fore hire, customer income, proximity to touristic sights etc.).   
 
