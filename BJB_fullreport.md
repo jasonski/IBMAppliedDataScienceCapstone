@@ -75,7 +75,7 @@ As explained the datasets used will be 1) the citizencount per zip code and 2) n
 ### 3.1 Data Preparation
 The data sets need to be cleaned and transformed into a handy format for the analysis. For this task the python library [pandas](https://pandas.pydata.org/). is a great tool The data sets are transformed into pandas dataframe format. Here are the 5 rows of the dataframes burger joints, hotels and offices. 
 
-<table class="dataframe" border="1">
+<table class="dataframe" >
   <thead>
     <tr style="text-align:right">
       <th></th>
@@ -130,7 +130,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
   </tbody>
 </table>
 
-<table class="dataframe" border="1">
+<table class="dataframe" >
   <thead>
     <tr style="text-align:right">
       <th></th>
@@ -185,7 +185,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
   </tbody>
 </table>
 
-<table class="dataframe" border="1">
+<table class="dataframe" >
   <thead>
     <tr style="text-align:right">
       <th></th>
