@@ -65,12 +65,11 @@ https://developer.foursquare.com/docs/api/venues/search
 The FoursquareAPI response provides much more data than needed here. We will only make use of the following parameters:
 name, latitude, longitude, zip code, and id as we are mainly intereested in location and number of these places.
 
-An exemplary response for a joint location, as provided by foursquare,  limited to only one answer, and reshaped into a python pandas dataframe would look linke this:
+An exemplary response for a joint location, as provided by foursquare,  limited to only one answer, and reshaped into a python [pandas](https://pandas.pydata.org/) dataframe would look linke this:
 
 |name |	lat |	lon |	zip 	|id|
 |----|----|----|----|----|
 |Kladow Grill Burger Pizza |	52.453026 |	13.141852 |	14089 |	4f92ddb6e4b008256552e140|
-
 
 A normal request will give a list of up to 50 results (for a free developer account) and we will have to pose multiple request to cover all Berlin zip codes as well as all above named categories.
 
@@ -133,6 +132,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
     </tr>
   </tbody>
 </table>
+*Table 2: Burger Joint Data frame*
 
 <table class="dataframe" >
   <thead>
@@ -188,6 +188,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
     </tr>
   </tbody>
 </table>
+*Table 3: Hotel Data frame*
 
 <table class="dataframe" >
   <thead>
@@ -243,11 +244,12 @@ The data sets need to be cleaned and transformed into a handy format for the ana
     </tr>
   </tbody>
 </table>
+*Table 4: Office Data frame*
 
 Some rows miss zip code values in all data frames. We have to replace them. Simultaneously the data frames need to be cleaned  from places that are not in Berlin and wich were accidentally added due to the implementation of the data acquisition (see jupyter notebook). To achieve this the latitude and longitude of each location is compared with the zip code polygones provided in the geojson file. To check if a given point is wihtin a given polygone the python package [shapely](https://pypi.org/project/Shapely/) with its methods Point and Polygon is utillized. With the help with the python package [folium](https://pypi.org/project/folium/) the data set can be visualized in map form.
 
-![map berlin_burgershotelsoffices](/images/berlin_burhotoff.png?)
-*Map of Berlin with color coded locations of Burger Places, Hotesl, and Offices.*
+![map berlin_burgershotelsoffices](/images/berlin_burhotoff.png?)<br>
+*Figure 2: Map of Berlin with color coded locations of Burger Places, Hotesl, and Offices.*
 
 In the cleaned data frames it is now possible to count facilities of each type for each zip code. The result is joined with the demographic data on the basis of their zip codes and the resulting data frame constitutes the data base for the following statistical anylsis. The first rows can be seen in the following table.
 
@@ -305,16 +307,26 @@ In the cleaned data frames it is now possible to count facilities of each type f
     </tr>
   </tbody>
 </table>
-*Complete data frame comprising the four categories used in this study: citizens, burger places, hotels, and offices. *
+*Table 5: Complete data frame comprising the four categories used in this study: citizens, burger places, hotels, and offices. *
 
 For completeness the demographic data is visulized in the following figure. This is achieved by combining the geojason file and the dataframe colum citizen count using the python folium package.
 
-![map berlin_citizens](/images/berlin_citizens.png?)
-*Choropleth map style folium map of Berlin zip code areas color coded by number of inhabitants.*
+![map berlin_citizens](/images/berlin_citizens.png?)<br>
+*Figure 3: Choropleth map style folium map of Berlin zip code areas color coded by number of inhabitants.*
 
 ### 3.2 Data Analysis using Machine Learning 
+After preparation the data can now be analysed. In order to decide what technique is useful for the analysis a data visualization is often of great help. Here the normalized numbers of each category against zip code is shown.
+![data_explr1](/images/data_explr1.png?)<br>
+*Figure 4: Normalized numbers  of citizens, hotels, offces and burger places for each zip code.*
+
+Another possibility is the plot of one variale agains another. So here is an example of the three categories citizens, hotels and offices as functions of number of burger places. 
+![data_explr2](/images/data_explr2.png?)<br>
+*Figure 5:  Normalized numbers  of citizens, hotels, and offces against number of burger places for each zip code.*
+
+The above examples demonstrate that there is no easy visual relation between the data categories like i.e. linear or polynomial. However, Figure 5 seems to show some separation of features i.e. areas where one color seems to dominate.  We therefore decide for a clusterization algorithm that will divide our data set into clusters. We chose the [kmeans++](https://en.wikipedia.org/wiki/K-means_clustering) approach which is implented as a method in the python package [sklearn](https://scikit-learn.org/stable/).  The kmeans++ algorithm allows to choose the number of seeds, i.e. the number of clusters that shall be found. After some testing we chose n=4 clusters as sufficient because we have to understand the differences in the clusters afterwards to able to rank them as good for our cases or not. Because the data ranges are very different in each category we work with normalized data. The normalization allows to manipulate the weighting of the categories for clusterization. We will weight the influence of citizens down to w_ct = 0.5 because the ordinary person in Berlin presumably is a once in a while burger consumer. On the other hand burger place competition is important. Thus we double the weight of that parameter w_bj=2. 
 
 ## 4. Results
+The 
 
 ## 5. Discussion
 
