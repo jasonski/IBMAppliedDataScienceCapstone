@@ -51,6 +51,7 @@ Next, we need the location and shape of each zip code. This is also provided by 
 These are **GPS coordinates** which serve as the corner points of the polygone of the **zip code area** 10115 Berlin. Here an exemplary image of that zip code:
 
 ![Zip 10115](/images/10115.png?)
+*Figure 1: Exemplary zip code area 10115 in Berlin, Germany*
 
 We download the list of coordinates for all Berlin zip codes.
 
@@ -69,6 +70,7 @@ An exemplary response for a joint location, as provided by foursquare,  limited 
 |name |	lat |	lon |	zip 	|id|
 |----|----|----|----|----|
 |Kladow Grill Burger Pizza |	52.453026 |	13.141852 |	14089 |	4f92ddb6e4b008256552e140|
+
 
 A normal request will give a list of up to 50 results (for a free developer account) and we will have to pose multiple request to cover all Berlin zip codes as well as all above named categories.
 
