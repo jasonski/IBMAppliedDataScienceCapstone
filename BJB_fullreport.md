@@ -338,7 +338,10 @@ When the result is plotted onto the Berlin map we can identify the different clu
 ![map_cluster1](/images/map_cluster1.png?)<br>
 *Figure 7:  Map of Berlin zip code areas color coded by cluster affiliation.*
 
-Now the affiliation of the zip codes with the four clusters is made clear. To make use of the performed cluterization we still have to understand if there is an interpretable scheme behind the clusterization. In order to do so, we average each category clusterwise and then normalize each category by deviding by the maximum value between cluster. We obtain a new data frame displayed in the following table. 
+Now the affiliation of the zip codes with the four clusters is made clear. To make use of the performed cluterization we still have to understand if there is an interpretable scheme behind the clusterization.
+
+## 5. Discussion
+In order to get a better grasp on the meaning of the clusterization, we average each category clusterwise and then normalize each category by deviding by the maximum value between cluster. We obtain a new data frame displayed in the following table. 
 
 <table class="dataframe">
   <thead>
@@ -390,15 +393,15 @@ We see that the clusterwise average citizen count is very similar between cluste
 
 With the help of Figure 8 it is now possible to rank the cluster by their lables and thus answer our initial research question.
 
-The best areas to open a new burger place in Berlin, Germany can be found in the zip code areas of cluster 3. Here we have an avergae number of citizens, the highest number of offices, a high number of hotels i.e. many tourists and finbally very low competing burger places.
+The best areas to open a new burger place in Berlin, Germany can be found in the **zip code areas of cluster (3)**. Here we have an avergae number of citizens, the highest number of offices, a high number of hotels i.e. many tourists and finally very low competing burger places.
 
-A second option are the areas of cluster 0 where we find even less burger places, but also significantly less offices and tourist. In these zip code areas one might expect primarily residents as custumers and should adjust to their needs.
+A second option are the **areas of cluster (0)** where we find even less burger places, but also significantly less offices and tourist. In these zip code areas one might expect primarily residents as custumers and should adjust to their needs.
 
-The other to categories 1 and 2 show signifficantly more competition and less favourable conditions for opening the new burger place.
-
-## 5. Discussion
+The other two **categories (1) and (2)** show signifficantly more competition and less favourable conditions for opening the new burger place. However, if the competition can be overcome by an superior burger offering of any kind the areas in cluster (2) might be interessting as well.
 
 ## 6. Conclusion
+We found a clear answer to the initial raised question where to open a new burger place in Berlin, Germany. We performed data acquisiton and reshaping and then analysed the data using the kmeans++ algorithm. In this way we obtained four clusters which we interpretet to be of very different quality for opening the new burger place. The zip code areas from cluster (0) show the best factors and should be considered first.
 
+Note, that we have to make clear that the analysis presented here is based only on a very limited amount of data categories. It is obvious that many other factors will influence the success of a new restaurant. This analysis should therefore be considered as a exemplary work that could be extended easily by including more data such as e.g. the amout of rent to be paid, availlable places fore hire, customer income, proximity to touristic sights etc.).   
 
 
