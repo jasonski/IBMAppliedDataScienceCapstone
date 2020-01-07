@@ -1,5 +1,5 @@
-# Coursera_Capstone
-Capstone project : Battle of the Neighbourhoods
+# Coursera Capstone Project Report
+Capstone project : Battle of the Neighbourhoods - Burger Joint Berlin - BJB
 
 ## 1. Introduction
 
@@ -40,7 +40,7 @@ The csv file directly provides the number of citizens for each zip area code.
 
 ### 2.2. Location data Berlin, Germany
 
-Next, we need the location and shape of each zip code. The is also provided by the smae page as a shape or kml file. https://www.suche-postleitzahl.org/berlin.13f
+Next, we need the location and shape of each zip code. This is also provided by the same web page in shp or kml file format. https://www.suche-postleitzahl.org/berlin.13f
 
 *data example:*
 ```kml
@@ -69,5 +69,27 @@ An exemplary response for a joint location, as provided by foursquare,  limited 
 |Kladow Grill Burger Pizza |	52.453026 |	13.141852 |	14089 |	4f92ddb6e4b008256552e140|
 
 A normal request will give a list of up to 50 results (for a free developer account) and we will have to pose multiple request to cover all Berlin zip codes as well as all above named categories.
+
+## 3. Methodology
+As explained the datasets used will be 1) the citizencount per zip code and 2) numbers of burger places, hotels and offices.  
+### 3.1 Data Preparation
+The data sets need to be cleaned and transformed into a handy format for the analysis. For this task the python library pandas is a great tool (https://pandas.pydata.org/). The data sets are transformed into pandas dataframe format.
+
+ 	name 	lat 	lon 	zip 	id
+0 	Kladow Grill Burger Pizza 	52.453026 	13.141852 	14089 	4f92ddb6e4b008256552e140
+1 	Volcano Burger 	52.525032 	13.196861 	13595 	594d55f69d6a19266e4509f0
+2 	Cruise-In 	52.532584 	13.178774 	13581 	4bf2815baf659c744ffcd747
+3 	Bastis Currys, Burgers & Fries 	52.533400 	13.190330 	13581 	5a17e311bfc6d03f268daa13
+4 	Burger Route 	52.530632 	13.196140 	13581 	5921ba9c89e49063753304e5
+
+### 3.2 Data Analysis
+
+
+## 4. Results
+
+## 5. Discussion
+
+## 6. Conslusion
+
 
 
