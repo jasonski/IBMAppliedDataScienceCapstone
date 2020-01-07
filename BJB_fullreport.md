@@ -73,7 +73,8 @@ A normal request will give a list of up to 50 results (for a free developer acco
 ## 3. Methodology
 As explained the datasets used will be 1) the citizencount per zip code and 2) numbers of burger places, hotels and offices.  
 ### 3.1 Data Preparation
-The data sets need to be cleaned and transformed into a handy format for the analysis. For this task the python library pandas is a great tool (https://pandas.pydata.org/). The data sets are transformed into pandas dataframe format.
+The data sets need to be cleaned and transformed into a handy format for the analysis. For this task the python library [pandas](https://pandas.pydata.org/). is a great tool The data sets are transformed into pandas dataframe format. Here are the 5 rows of the dataframes burger joints, hotels and offices. 
+
 <table class="dataframe" border="1">
   <thead>
     <tr style="text-align:right">
@@ -128,6 +129,124 @@ The data sets need to be cleaned and transformed into a handy format for the ana
     </tr>
   </tbody>
 </table>
+
+<table class="dataframe" border="1">
+  <thead>
+    <tr style="text-align:right">
+      <th></th>
+      <th>name</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>zip</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Breakfast Room</td>
+      <td>52.399327</td>
+      <td>13.112184</td>
+      <td>NaN</td>
+      <td>5dd0f776ed8bfb0008fd2cf8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Concorde Hotel Forsthaus</td>
+      <td>52.405273</td>
+      <td>13.140936</td>
+      <td>14109</td>
+      <td>4ea0073e8b816206b9f66786</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pension Zeitlos</td>
+      <td>52.392231</td>
+      <td>13.098609</td>
+      <td>14482</td>
+      <td>4bc793c193bdeee1538837ae</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>avendi Hotel am Griebnitzsee</td>
+      <td>52.395366</td>
+      <td>13.127460</td>
+      <td>14482</td>
+      <td>4b0b2b48f964a520fc2d23e3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Apartements Filmeck</td>
+      <td>52.382681</td>
+      <td>13.122606</td>
+      <td>14480</td>
+      <td>57a37946498e72a672128ef4</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="dataframe" border="1">
+  <thead>
+    <tr style="text-align:right">
+      <th></th>
+      <th>name</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>zip</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MedienHaus Babelsberg - Zentrum für Film- und ...</td>
+      <td>52.387894</td>
+      <td>13.119310</td>
+      <td>14482</td>
+      <td>506daff2e4b0dd5636405aae</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>VCAT Consulting HQ</td>
+      <td>52.388084</td>
+      <td>13.119418</td>
+      <td>14482</td>
+      <td>4bdae2aac79cc9286c1880e9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Vragments</td>
+      <td>52.388901</td>
+      <td>13.120517</td>
+      <td>14482</td>
+      <td>5b71911df2554e002c9e3f9b</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Point Cloud Technology GmbH</td>
+      <td>52.387762</td>
+      <td>13.121250</td>
+      <td>14482</td>
+      <td>5cc6ba94c0af57002cd0a6ac</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Radio TEDDY  HQ</td>
+      <td>52.382264</td>
+      <td>13.120453</td>
+      <td>14482</td>
+      <td>4b90c0a2f964a520419633e3</td>
+    </tr>
+  </tbody>
+</table>
+
+There are some missing zip code values in the data frames. We have to replace them. Simultaneously all places need to be dropped that are not in Berlin. To achieve this the latitude and longitude of each location is compared with the zip code polygones provided in the geojson file. To check if a given point is wihtin a given polygone the python package [shapely](https://pypi.org/project/Shapely/) provides the methods Point and Polygon .
+
+
+
+
+
+
 
 ### 3.2 Data Analysis
 
