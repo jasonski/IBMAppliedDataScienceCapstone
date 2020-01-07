@@ -71,7 +71,7 @@ An exemplary response for a joint location, as provided by foursquare,  limited 
 A normal request will give a list of up to 50 results (for a free developer account) and we will have to pose multiple request to cover all Berlin zip codes as well as all above named categories.
 
 ## 3. Methodology
-As explained the datasets used will be 1) the citizencount per zip code and 2) numbers of burger places, hotels and offices.  
+As explained the data sets used will be 1) the citizencount per zip code and 2) numbers of burger places, hotels and offices.  
 ### 3.1 Data Preparation
 The data sets need to be cleaned and transformed into a handy format for the analysis. For this task the python library [pandas](https://pandas.pydata.org/). is a great tool The data sets are transformed into pandas dataframe format. Here are the 5 rows of the dataframes burger joints, hotels and offices. 
 
@@ -242,8 +242,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
 
 Some rows miss zip code values in all data frames. We have to replace them. Simultaneously the data frames need to be cleaned  from places that are not in Berlin and wich were accidentally added due to the implementation of the data acquisition (see jupyter notebook). To achieve this the latitude and longitude of each location is compared with the zip code polygones provided in the geojson file. To check if a given point is wihtin a given polygone the python package [shapely](https://pypi.org/project/Shapely/) with its methods Point and Polygon is utillized. 
 
-### 3.2 Data Analysis
-In the cleaned data frames it is now possible to count facilities of each type for each zip code. The result is joined with the demographic data on the basis of theri zip codes and the resulting data frame constitutes the data base for the following statistical anylsis. The first rows can be seen in the following table.
+In the cleaned data frames it is now possible to count facilities of each type for each zip code. The result is joined with the demographic data on the basis of their zip codes and the resulting data frame constitutes the data base for the following statistical anylsis. The first rows can be seen in the following table.
 <table class="dataframe">
   <thead>
     <tr style="text-align:right">
@@ -299,6 +298,7 @@ In the cleaned data frames it is now possible to count facilities of each type f
   </tbody>
 </table>
 
+### 3.2 Data Analysis using Machine Learning 
 
 ## 4. Results
 
