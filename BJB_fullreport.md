@@ -325,14 +325,80 @@ Another possibility is the plot of one variale agains another. So here is an exa
 ![data_explr2](/images/data_explr2.png?)<br>
 *Figure 5:  Normalized numbers  of citizens, hotels, and offces against number of burger places for each zip code.*
 
-The above examples demonstrate that there is no easy visual relation between the data categories like i.e. linear or polynomial. However, Figure 5 seems to show some separation of features i.e. areas where one color seems to dominate.  We therefore decide for a clusterization algorithm that will divide our data set into clusters. We chose the [kmeans++](https://en.wikipedia.org/wiki/K-means_clustering) approach which is implented as a method in the python package [sklearn](https://scikit-learn.org/stable/).  The kmeans++ algorithm allows to choose the number of seeds, i.e. the number of clusters that shall be found. After some testing we chose n=4 clusters as sufficient because we have to understand the differences in the clusters afterwards to able to rank them as good for our cases or not. Because the data ranges are very different in each category we work with normalized data. The normalization allows to manipulate the weighting of the categories for clusterization. We will weight the influence of citizens down to w_ct = 0.5 because the ordinary person in Berlin presumably is a once in a while burger consumer. On the other hand burger place competition is important. Thus we double the weight of that parameter w_bj=2. 
+The above examples demonstrate that there is no easy visual relation between the data categories like i.e. linear or polynomial. However, Figure 5 seems to show some separation of features i.e. areas where one color seems to dominate.  We therefore decide for a clusterization algorithm that will divide our data set into clusters. We chose the [kmeans++](https://en.wikipedia.org/wiki/K-means_clustering) approach which is implented as a method in the python package [sklearn](https://scikit-learn.org/stable/).  The kmeans++ algorithm allows to choose the number of wanted clusters and of seeds for cluster initiation. After some testing we chose to use four clusters as sufficient because we have to understand the differences in the clusters afterwards to able to rank them as good for our cases or not. Cluster seeds are set to 500. Because the data ranges are very different in each category we work with normalized data. The normalization allows to manipulate the weighting of the categories for clusterization. We will weight the influence of citizens down to w_ct = 0.5 because the ordinary person in Berlin presumably is a once in a while burger consumer. On the other hand burger place competition is important. Thus we double the weight of that parameter w_bj=2. 
 
 ## 4. Results
-The 
+The kmeans++ clusterization works fine and we find four clusters that appear to represent and separate our data set well. We check this again by plotting different categories against one another with a color overlay corresponding to the clusters obtained by the kmeans++ approach.
+
+![data_clustr1](/images/data_clustr1.png?)<br>
+*Figure 6:  Office count against number of burger places for each zip code color coded by cluster number 0-3.*
+
+When the result is plotted onto the Berlin map we can identify the different clusters by color. 
+
+![map_clustr1](/images/map_clustr1.png?)<br>
+*Figure 7:  Map of Berlin zip code areas color coded by cluster affiliation.*
+
+Now the affiliation of the zip codes with the four clusters is made clear. To make use of the performed cluterization we still have to understand if there is an interpretable scheme behind the clusterization. In order to do so, we average each category clusterwise and then normalize each category by deviding by the maximum value between cluster. We obtain a new data frame displayed in the following table. 
+
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ct_count</th>
+      <th>bj_count</th>
+      <th>of_count</th>
+      <th>ht_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.907749</td>
+      <td>0.044835</td>
+      <td>0.303245</td>
+      <td>0.246536</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.930925</td>
+      <td>0.394625</td>
+      <td>0.422400</td>
+      <td>0.401786</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.746667</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.925165</td>
+      <td>0.101839</td>
+      <td>1.000000</td>
+      <td>0.776786</td>
+    </tr>
+  </tbody>
+</table>
+*Table 6: Data categories counted and normalized for each column.*
+
+We see that the clusterwise average citizen count is very similar between clusters, while the other categories vary significantly stronger. The largest deviation is found for burger joints. To better visulize this the following figure is very useful.
+
+![rose_clustr1](/images/rose_clustr1.png?)<br>
+*Figure 8:  Clusterwise averaged categories burger joints, office count, hotel count and office count. The numbers are normalized by the maximum of each category. Cluster coloring is consistent with Figures 6+7.*
+
+With the help of Figure 8 it is now possible to rank the cluster by their lables and thus answer our initial research question.
+
+The best areas to open a new burger place in Berlin, Germany can be found in the zip code areas of cluster 3. Here we have an avergae number of citizens, the highest number of offices, a high number of hotels i.e. many tourists and finbally very low competing burger places.
+
+A second option are the areas of cluster 0 where we find even less burger places, but also significantly less offices and tourist. In these zip code areas one might expect primarily residents as custumers and should adjust to their needs.
+
+The other to categories 1 and 2 show signifficantly more competition and less favourable conditions for opening the new burger place.
 
 ## 5. Discussion
 
-## 6. Conslusion
+## 6. Conclusion
 
 
 
