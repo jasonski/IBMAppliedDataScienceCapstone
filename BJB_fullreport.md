@@ -243,6 +243,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
 Some rows miss zip code values in all data frames. We have to replace them. Simultaneously the data frames need to be cleaned  from places that are not in Berlin and wich were accidentally added due to the implementation of the data acquisition (see jupyter notebook). To achieve this the latitude and longitude of each location is compared with the zip code polygones provided in the geojson file. To check if a given point is wihtin a given polygone the python package [shapely](https://pypi.org/project/Shapely/) with its methods Point and Polygon is utillized. With the help with the python package [folium](https://pypi.org/project/folium/) the data set can be visualized in map form.
 
 ![map berlin_burgershotelsoffices](/images/berlin_burhotoff.png?)
+*Map of Berlin with color coded locations of Burger Places, Hotesl, and Offices.*
 
 In the cleaned data frames it is now possible to count facilities of each type for each zip code. The result is joined with the demographic data on the basis of their zip codes and the resulting data frame constitutes the data base for the following statistical anylsis. The first rows can be seen in the following table.
 
@@ -299,13 +300,13 @@ In the cleaned data frames it is now possible to count facilities of each type f
       <td>12.0</td>
     </tr>
   </tbody>
-  </some here>
 </table>
+*Complete data frame comprising the four categories used in this study: citizens, burger places, hotels, and offices. *
 
 For completeness the demographic data is visulized in the following figure. This is achieved by combining the geojason file and the dataframe colum citizen count using the python folium package.
 
 ![map berlin_citizens](/images/berlin_citizens.png?)
-*some subscript*
+*Choropleth map style folium map of Berlin zip code areas color coded by number of inhabitants.*
 
 ### 3.2 Data Analysis using Machine Learning 
 
