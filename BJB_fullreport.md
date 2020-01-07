@@ -74,13 +74,60 @@ A normal request will give a list of up to 50 results (for a free developer acco
 As explained the datasets used will be 1) the citizencount per zip code and 2) numbers of burger places, hotels and offices.  
 ### 3.1 Data Preparation
 The data sets need to be cleaned and transformed into a handy format for the analysis. For this task the python library pandas is a great tool (https://pandas.pydata.org/). The data sets are transformed into pandas dataframe format.
-
- 	name 	lat 	lon 	zip 	id
-0 	Kladow Grill Burger Pizza 	52.453026 	13.141852 	14089 	4f92ddb6e4b008256552e140
-1 	Volcano Burger 	52.525032 	13.196861 	13595 	594d55f69d6a19266e4509f0
-2 	Cruise-In 	52.532584 	13.178774 	13581 	4bf2815baf659c744ffcd747
-3 	Bastis Currys, Burgers & Fries 	52.533400 	13.190330 	13581 	5a17e311bfc6d03f268daa13
-4 	Burger Route 	52.530632 	13.196140 	13581 	5921ba9c89e49063753304e5
+<table class="dataframe" border="1">
+  <thead>
+    <tr style="text-align:right">
+      <th></th>
+      <th>name</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>zip</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Kladow Grill Burger Pizza</td>
+      <td>52.453026</td>
+      <td>13.141852</td>
+      <td>14089</td>
+      <td>4f92ddb6e4b008256552e140</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Volcano Burger</td>
+      <td>52.525032</td>
+      <td>13.196861</td>
+      <td>13595</td>
+      <td>594d55f69d6a19266e4509f0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Cruise-In</td>
+      <td>52.532584</td>
+      <td>13.178774</td>
+      <td>13581</td>
+      <td>4bf2815baf659c744ffcd747</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Bastis Currys, Burgers &amp; Fries</td>
+      <td>52.533400</td>
+      <td>13.190330</td>
+      <td>13581</td>
+      <td>5a17e311bfc6d03f268daa13</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Burger Route</td>
+      <td>52.530632</td>
+      <td>13.196140</td>
+      <td>13581</td>
+      <td>5921ba9c89e49063753304e5</td>
+    </tr>
+  </tbody>
+</table>
 
 ### 3.2 Data Analysis
 
