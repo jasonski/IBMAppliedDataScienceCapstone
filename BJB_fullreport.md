@@ -316,10 +316,12 @@ For completeness the demographic data is visulized in the following figure. This
 
 ### 3.2 Data Analysis using Machine Learning 
 After preparation the data can now be analysed. In order to decide what technique is useful for the analysis a data visualization is often of great help. Here the normalized numbers of each category against zip code is shown.
+
 ![data_explr1](/images/data_explr1.png?)<br>
 *Figure 4: Normalized numbers  of citizens, hotels, offces and burger places for each zip code.*
 
 Another possibility is the plot of one variale agains another. So here is an example of the three categories citizens, hotels and offices as functions of number of burger places. 
+
 ![data_explr2](/images/data_explr2.png?)<br>
 *Figure 5:  Normalized numbers  of citizens, hotels, and offces against number of burger places for each zip code.*
 
