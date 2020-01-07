@@ -240,15 +240,64 @@ The data sets need to be cleaned and transformed into a handy format for the ana
   </tbody>
 </table>
 
-Some rows miss zip code values in all data frames. We have to replace them. Simultaneously the data frames need to be cleaned  from places that are not in Berlin and wich were accidentally added due to the implementation of the data acquisition (see jupyter notebook). To achieve this the latitude and longitude of each location is compared with the zip code polygones provided in the geojson file. To check if a given point is wihtin a given polygone the python package [shapely](https://pypi.org/project/Shapely/) with its methods Point and Polygon is utillized.
-
-
-
-
-
-
+Some rows miss zip code values in all data frames. We have to replace them. Simultaneously the data frames need to be cleaned  from places that are not in Berlin and wich were accidentally added due to the implementation of the data acquisition (see jupyter notebook). To achieve this the latitude and longitude of each location is compared with the zip code polygones provided in the geojson file. To check if a given point is wihtin a given polygone the python package [shapely](https://pypi.org/project/Shapely/) with its methods Point and Polygon is utillized. 
 
 ### 3.2 Data Analysis
+In the cleaned data frames it is now possible to count facilities of each type for each zip code. The result is joined with the demographic data on the basis of theri zip codes and the resulting data frame constitutes the data base for the following statistical anylsis. The first rows can be seen in the following table.
+<table class="dataframe" border="1">
+  <thead>
+    <tr style="text-align:right">
+      <th></th>
+      <th>zip</th>
+      <th>ct_count</th>
+      <th>bj_count</th>
+      <th>of_count</th>
+      <th>ht_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10115</td>
+      <td>20313</td>
+      <td>2.0</td>
+      <td>12.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10117</td>
+      <td>12217</td>
+      <td>5.0</td>
+      <td>14.0</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10119</td>
+      <td>16363</td>
+      <td>7.0</td>
+      <td>15.0</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10178</td>
+      <td>12167</td>
+      <td>7.0</td>
+      <td>15.0</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10179</td>
+      <td>18664</td>
+      <td>2.0</td>
+      <td>11.0</td>
+      <td>12.0</td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## 4. Results
