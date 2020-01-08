@@ -1,5 +1,5 @@
 # Coursera Capstone Project Report
-Capstone project : Battle of the Neighbourhoods - Burger Joint Berlin - BJB
+Battle of the Neighbourhoods - Burger Joint Berlin? - BJB
 
 ## 1. Introduction
 
@@ -20,7 +20,7 @@ The resulting deliverable of the effort taken here will be a list of zip codes c
 ## 2. Data
 ### 2.1. Demographic data Berlin, Germany
 
-Germany had its last census in 2011 (www.zensus2011.de). The data can be accessed there directily. Conveniently, the web page 
+Germany had its last census in 2011 (www.zensus2011.de). The data can be accessed there directly. Conveniently, the web page 
 www.suche-postleitzahl.org reworked the data and provides a list of the amount of inhabitants per zip code:
 
 https://www.suche-postleitzahl.org/download_files/public/plz_einwohner.csv
@@ -48,7 +48,7 @@ Next, we need the location and shape of each zip code. This is also provided by 
 ```kml
 <kml xmlns="http://www.opengis.net/kml/2.2"><Document><Folder><name>PLZ 5-stellig Stadt Berlin</name><Placemark><name>10115</name><description>10115 Berlin Mitte</description><Polygon><outerBoundaryIs><LinearRing><coordinates>13.3658603,52.535660399999998 13.366558899999999,52.5359129 13.3667012,52.5360631 13.3678819,52.5366213 13.368609299999999, ... ,52.535660399999998</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark><Placemark> ...
 ```
-These are **GPS coordinates** which serve as the corner points of the polygone of the **zip code area** 10115 Berlin. Here an exemplary image of that zip code:
+These are **GPS coordinates** which serve as the corner points of the polygon of the **zip code area** 10115 Berlin. Here an exemplary image of that zip code:
 
 ![Zip 10115](/images/10115.png?)<br>
 *Figure 1: Exemplary zip code area 10115 in Berlin, Germany*
@@ -57,15 +57,15 @@ We download the list of coordinates for all Berlin zip codes.
 
 ### 2.3. Categorical Data provided by Foursquare
 
-In order to obtain information on tourist numbers we will use the proxy hotel locaions. Also we seek office locations and burger joint locations. To gather these information we utillize the location platform of **Foursquare Labs Inc.** using a free developer account. We will use the *venue search query* to access the foursquare data base using their API. This returns a list of venues near a given location, optionally matching a search term. We can specify our three categories hotels, offices and burger joints.
+In order to obtain information on tourist numbers we will use the proxy hotel locations. Also, we seek office locations and burger joint locations. To gather those information we utilize the location platform of **Foursquare Labs Inc.** using a free developer account. We will use the *venue search query* to access the foursquare data base using their API. This returns a list of venues near a given location, optionally matching a search term. We can specify our three categories hotels, offices and burger joints.
 
 Documentation on how to use this query is found here:
 https://developer.foursquare.com/docs/api/venues/search
 
 The FoursquareAPI response provides much more data than needed here. We will only make use of the following parameters:
-name, latitude, longitude, zip code, and id as we are mainly intereested in location and number of these places.
+name, latitude, longitude, zip code, and id as we are mainly interested in location and number of these places.
 
-An exemplary response for a joint location, as provided by foursquare,  limited to only one answer, and reshaped into a python [pandas](https://pandas.pydata.org/) dataframe would look linke this:
+An exemplary response for a joint location, as provided by foursquare,  limited to only one answer, and reshaped into a python [pandas](https://pandas.pydata.org/) data frame would look link this:
 
 |name |	lat |	lon |	zip 	|id|
 |----|----|----|----|----|
@@ -74,9 +74,9 @@ An exemplary response for a joint location, as provided by foursquare,  limited 
 A normal request will give a list of up to 50 results (for a free developer account) and we will have to pose multiple request to cover all Berlin zip codes as well as all above named categories.
 
 ## 3. Methodology
-As explained the data sets used will be 1) the citizencount per zip code and 2) numbers of burger places, hotels and offices.  
+As explained the data sets used will be 1) the citizen count per zip code and 2) numbers of burger places, hotels and offices.  
 ### 3.1 Data Preparation
-The data sets need to be cleaned and transformed into a handy format for the analysis. For this task the python library [pandas](https://pandas.pydata.org/). is a great tool The data sets are transformed into pandas dataframe format. Here are the 5 rows of the dataframes burger joints, hotels and offices. 
+The data sets need to be cleaned and transformed into a handy format for the analysis. For this task the python library [pandas](https://pandas.pydata.org/) is a great tool The data sets are transformed into pandas dataframe format. Here are five exemplary rows of each of the dataframes burger joints, hotels and offices. 
 
 <table class="dataframe" >
   <thead>
@@ -133,7 +133,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
   </tbody>
 </table>
 
-*Table 2: Burger Joint Data frame*
+*Table 2: Burger Joint data frame*
 
 <table class="dataframe" >
   <thead>
@@ -190,7 +190,7 @@ The data sets need to be cleaned and transformed into a handy format for the ana
   </tbody>
 </table>
 
-*Table 3: Hotel Data frame*
+*Table 3: Hotel data frame*
 
 <table class="dataframe" >
   <thead>
@@ -247,14 +247,14 @@ The data sets need to be cleaned and transformed into a handy format for the ana
   </tbody>
 </table>
 
-*Table 4: Office Data frame*
+*Table 4: Office data frame*
 
-Some rows miss zip code values in all data frames. We have to replace them. Simultaneously the data frames need to be cleaned  from places that are not in Berlin and wich were accidentally added due to the implementation of the data acquisition (see jupyter notebook). To achieve this the latitude and longitude of each location is compared with the zip code polygones provided in the geojson file. To check if a given point is wihtin a given polygone the python package [shapely](https://pypi.org/project/Shapely/) with its methods Point and Polygon is utillized. With the help with the python package [folium](https://pypi.org/project/folium/) the data set can be visualized in map form.
+Some rows miss zip code values in all data frames. We have to replace them. Simultaneously the data frames need to be cleaned  from places that are not in Berlin and which were accidentally added due to the implementation of the data acquisition (see jupyter notebook). To achieve this the latitude and longitude of each location is compared with the zip code polygons provided in the geojson file. To check if a given point is within a given polygon the python package [shapely](https://pypi.org/project/Shapely/) with its methods Point and Polygon is utilized. With the help with the python package [folium](https://pypi.org/project/folium/) the data set can be visualized in map form.
 
 ![map berlin_burgershotelsoffices](/images/berlin_burhotoff.png?)<br>
-*Figure 2: Map of Berlin with color coded locations of Burger Places, Hotesl, and Offices.*
+*Figure 2: Map of Berlin with color coded locations of Burger Places, Hotels, and Offices.*
 
-In the cleaned data frames it is now possible to count facilities of each type for each zip code. The result is joined with the demographic data on the basis of their zip codes and the resulting data frame constitutes the data base for the following statistical anylsis. The first rows can be seen in the following table.
+In the cleaned data frames it is now possible to count facilities of each type for each zip code. The result is joined with the demographic data on the basis of their zip codes and the resulting data frame constitutes the data base for the following statistical analysis. The first rows can be seen in the following table.
 
 <table class="dataframe">
   <thead>
@@ -313,23 +313,23 @@ In the cleaned data frames it is now possible to count facilities of each type f
 
 *Table 5: Complete data frame comprising the four categories used in this study: citizens, burger places, hotels, and offices.*
 
-For completeness the demographic data is visulized in the following figure. This is achieved by combining the geojason file and the dataframe colum citizen count using the python folium package.
+For completeness the demographic data is visualized in the following figure. This is achieved by combining the geojason file and the data frame column citizen count using the python folium package.
 
 ![map berlin_citizens](/images/berlin_citizens.png?)<br>
 *Figure 3: Choropleth map style folium map of Berlin zip code areas color coded by number of inhabitants.*
 
 ### 3.2 Data Analysis using Machine Learning 
-After preparation the data can now be analysed. In order to decide what technique is useful for the analysis a data visualization is often of great help. Here the normalized numbers of each category against zip code is shown.
+After preparation the data can now be analyzed. In order to decide what technique is useful for the analysis a data visualization is often of great help. Here, the normalized numbers of each category against zip code is shown.
 
 ![data_explr1](/images/data_explr1.png?)<br>
-*Figure 4: Normalized numbers  of citizens, hotels, offces and burger places for each zip code.*
+*Figure 4: Normalized numbers  of citizens, hotels, offices and burger places for each zip code.*
 
-Another possibility is the plot of one variale agains another. So here is an example of the three categories citizens, hotels and offices as functions of number of burger places. 
+Another possibility is the plot of one variable against another. So here is an example of the three categories citizens, hotels, and offices as functions of number of burger places. 
 
 ![data_explr2](/images/data_explr2.png?)<br>
-*Figure 5:  Normalized numbers  of citizens, hotels, and offces against number of burger places for each zip code.*
+*Figure 5:  Normalized numbers  of citizens, hotels, and offices against number of burger places for each zip code.*
 
-The above examples demonstrate that there is no easy visual relation between the data categories like i.e. linear or polynomial. However, Figure 5 seems to show some separation of features i.e. areas where one color seems to dominate.  We therefore decide for a clusterization algorithm that will divide our data set into clusters. We chose the [kmeans++](https://en.wikipedia.org/wiki/K-means_clustering) approach which is implented as a method in the python package [sklearn](https://scikit-learn.org/stable/).  The kmeans++ algorithm allows to choose the number of wanted clusters and of seeds for cluster initiation. After some testing we chose to use four clusters as sufficient because we have to understand the differences in the clusters afterwards to able to rank them as good for our cases or not. Cluster seeds are set to 500. Because the data ranges are very different in each category we work with normalized data. The normalization allows to manipulate the weighting of the categories for clusterization. We will weight the influence of citizens down to w_ct = 0.5 because the ordinary person in Berlin presumably is a once in a while burger consumer. On the other hand burger place competition is important. Thus we double the weight of that parameter w_bj=2. 
+The above examples demonstrate that there is no easy visual relation between the data categories like i.e. linear or polynomial. However, Figure 5 seems to show some separation of features i.e. areas where one color seems to dominate.  We therefore decide for a clusterization algorithm that will divide our data set into clusters. We chose the [kmeans++](https://en.wikipedia.org/wiki/K-means_clustering) approach which is implemented as a method in the python package [sklearn](https://scikit-learn.org/stable/).  The kmeans++ algorithm allows to choose the number of wanted clusters and of seeds for cluster initiation. After some testing we chose to use four clusters as sufficient because we have to understand the differences in the clusters afterwards to able to rank them as good for our cases or not. Cluster seeds are set to 500. Because the data ranges are very different in each category we work with normalized data. The normalization allows to manipulate the weighting of the categories for clusterization. We will weight the influence of citizens down to w_ct = 0.5 because the ordinary person in Berlin presumably is a once in a while burger consumer. On the other hand burger place competition is important. Thus, we double the weight of that parameter w_bj=2. 
 
 ## 4. Results
 The kmeans++ clusterization works fine and we find four clusters that appear to represent and separate our data set well. We check this again by plotting different categories against one another with a color overlay corresponding to the clusters obtained by the kmeans++ approach.
@@ -345,7 +345,7 @@ When the result is plotted onto the Berlin map we can identify the different clu
 Now the affiliation of the zip codes with the four clusters is made clear. To make use of the performed cluterization we still have to understand if there is an interpretable scheme behind the clusterization.
 
 ## 5. Discussion
-In order to get a better grasp on the meaning of the clusterization, we average each category clusterwise and then normalize each category by deviding by the maximum value between cluster. We obtain a new data frame displayed in the following table. 
+In order to get a better grasp on the meaning of the clusterization, we average each category cluster wise and then normalize each category by dividing by the maximum value between clusters. We obtain a new data frame displayed in the following table. 
 
 <table class="dataframe">
   <thead>
@@ -391,22 +391,24 @@ In order to get a better grasp on the meaning of the clusterization, we average 
 
 *Table 6: Data categories counted and normalized for each column.*
 
-We see that the clusterwise average citizen count is very similar between clusters, while the other categories vary significantly stronger. The largest deviation is found for burger joints. To better visulize this the following figure is very useful.
+We see that the cluster wise average citizen count is very similar between clusters, while the other categories vary significantly stronger. The largest deviation is found for burger joints. To better visualize this the following figure is very useful.
 
 ![rose_cluster1](/images/rose_cluster1.png?)<br>
-*Figure 8:  Clusterwise averaged categories burger joints, office count, hotel count and office count. The numbers are normalized by the maximum of each category. Cluster coloring is consistent with Figures 6+7.*
+*Figure 8:  Cluster wise averaged categories burger joints, office count, hotel count and office count. The numbers are normalized by the maximum of each category. Cluster coloring is consistent with Figures 6+7.*
 
-With the help of Figure 8 it is now possible to rank the cluster by their lables and thus answer our initial research question.
+With the help of Figure 8 it is now possible to rank the clusters and thus answer our initial research question.
 
-The best areas to open a new burger place in Berlin, Germany can be found in the **zip code areas of cluster (3)**. Here we have an avergae number of citizens, the highest number of offices, a high number of hotels i.e. many tourists and finally very low competing burger places.
+The best areas to open a new burger place in Berlin, Germany can be found in the **zip code areas of cluster (3)**. Here, we have an average number of citizens, the highest number of offices, a high number of hotels, i.e., many tourists and finally very low competing burger places.
 
-A second option are the **areas of cluster (0)** where we find even less burger places, but also significantly less offices and tourist. In these zip code areas one might expect primarily residents as custumers and should adjust to their needs.
+A second option are the **areas of cluster (0)** where we find even less burger places, but also significantly fewer offices and tourist. In these zip code areas one might expect primarily residents as customers and should adjust to their needs.
 
-The other two **categories (1) and (2)** show signifficantly more competition and less favourable conditions for opening the new burger place. However, if the competition can be overcome by an superior burger offering of any kind the areas in cluster (2) might be interessting as well.
+The other two **categories (1) and (2)** show significantly more competition and less favorable conditions for opening the new burger place. However, if the competition can be overcome by an superior burger offering of any kind the areas in cluster (2) might be interesting as well.
 
 ## 6. Conclusion
-We found a clear answer to the initial raised question where to open a new burger place in Berlin, Germany. We performed data acquisiton and reshaping and then analysed the data using the kmeans++ algorithm. In this way we obtained four clusters which we interpretet to be of very different quality for opening the new burger place. **The zip code areas from cluster (0) show the best factors and should be considered first.**
+We found a clear answer to the initial raised question where to open a new burger place in Berlin, Germany. We performed data acquisition and reshaping and then analyzed the data using the kmeans++ algorithm. In this way we obtained four clusters which we interpreted to be of very different quality for opening the new burger place. **The zip code areas from cluster (0) show the best factors and should be considered first.**
 
-Note, that we have to make clear that the analysis presented here is based only on a very limited amount of data categories. It is obvious that many other factors will influence the success of a new restaurant. This analysis should therefore be considered as a exemplary work that could be extended easily by including more data such as e.g. the amout of rent to be paid, availlable places fore hire, customer income, proximity to touristic sights etc.).   
+Note, that we have to make clear that the analysis presented here is based only on a very limited amount of data categories. It is obvious that many other factors will influence the success of a new restaurant. This analysis should therefore be considered as an exemplary work that could be extended easily by including more data such as the amount of rent to be paid, available places fore hire, customer income, proximity to touristic sights, ore else. 
+
+To see the computations that produced the given figures check the following two jupyter notebooks:
 
 
