@@ -409,8 +409,8 @@ We found a clear answer to the initial raised question where to open a new burge
 
 Note, that we have to make clear that the analysis presented here is based only on a very limited amount of data categories. It is obvious that many other factors will influence the success of a new restaurant. This analysis should therefore be considered as an exemplary work that could be extended easily by including more data such as the amount of rent to be paid, available places fore hire, customer income, proximity to touristic sights, ore else. 
 
-To see the computations that produced the given figures check the following two jupyter notebooks:
-data collection, cleaning and storage: [notebook](https://nbviewer.jupyter.org/github/jasonski/IBMAppliedDataScienceCapstone/blob/master/CapstoneProjectBJB_Part1.ipynb)
-data wrangling, visualization, analysis, and results: [notebook](https://nbviewer.jupyter.org/github/jasonski/IBMAppliedDataScienceCapstone/blob/master/CapstoneProjectBJB_Part2.ipynb)
+To see the computations that produced the given figures check the following two jupyter notebooks:<br>
+Data collection, cleaning and storage: [notebook](https://nbviewer.jupyter.org/github/jasonski/IBMAppliedDataScienceCapstone/blob/master/CapstoneProjectBJB_Part1.ipynb)<br>
+Data wrangling, visualization, analysis, and results: [notebook](https://nbviewer.jupyter.org/github/jasonski/IBMAppliedDataScienceCapstone/blob/master/CapstoneProjectBJB_Part2.ipynb)
 
 
