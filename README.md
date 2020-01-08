@@ -8,6 +8,8 @@ In the capstone project the data science approach to the following question is e
 
 A **report** is written answering that question, where data collection, exploration, wrangling and analysis are explained in detail. The report can be found [here](https://github.com/jasonski/IBMAppliedDataScienceCapstone/blob/master/BJB_fullreport.md).
 
+A **presentation** is provided that summarizes the analysis in few slides. It can be found [here](https://github.com/jasonski/IBMAppliedDataScienceCapstone/blob/master/CapstoneProjectBJBPresentation.pdf).
+
 The report is based on previous data collection and analysis performed in python jupyter notebooks, which are accessible here:
 
 data collection, cleaning and storage: [notebook](https://nbviewer.jupyter.org/github/jasonski/IBMAppliedDataScienceCapstone/blob/master/CapstoneProjectBJB_Part1.ipynb)
